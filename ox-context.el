@@ -2408,10 +2408,8 @@ containing contextual information."
                           (string priority-num)))
            (full-text (funcall (plist-get info :context-format-headline-function)
                                todo todo-type priority text tags info))
-           (headline-name
-            (org-context--get-headline-command headline info))
-           (headertemplate (format "\n\\start%s" headline-name))
-           (footercommand (format "\n\\stop%s" headline-name))
+           (headertemplate "\n\\startsectionlevel")
+           (footercommand "\n\\stopsectionlevel")
            (headline-label (org-context--label headline info t ))
            (index (let ((i (org-export-get-node-property :INDEX headline t)))
                     (assoc i (plist-get info :context-texinfo-indices))))
